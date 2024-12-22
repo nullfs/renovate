@@ -9,9 +9,22 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        include:
+          - name: Release
+            repository: ${{ github.ref == 'refs/heads/master' && 'java' || 'java-dev' }}
+            tag: 21.0.6${{ github.event.number && format('-PR{0}', github.event.number) }}
+          - name: Debug
+            repository: ${{ github.ref == 'refs/heads/master' && 'java' || 'java-dev' }}
+            tag: 21.0.6${{ github.event.number && format('-PR{0}', github.event.number) }}-debug
     steps:
       - name: Build and Push
         run: |
           echo ${{ github.ref }}
           echo ${{ github.event.number }}
-          echo ${{ github.ref == 'refs/heads/master' && 'java' || 'java-dev' }}:21.0.6${{ github.event.number && format('PR-{0}', github.event.number) }}
+          echo ${{ github.ref == 'refs/heads/master' && 'java' || 'java-dev' }}:21.0.6${{ github.event.number && format('-PR{0}', github.event.number) }}
+          echo ${{ matrix.name == 'debug' }}
+          echo ${{ matrix.name == 'debug' && '-debug' }}
+          echo ${{ matrix.name == 'debug' && '-debug' || '-release' }}
+          echo ${{ matrix.repository }}:${{ matrix.tag }}
