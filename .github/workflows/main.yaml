@@ -1,22 +1,17 @@
 name: CI/CD
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
-    branches:
-      - master
+    branches: [master]
   workflow_dispatch:
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build
+    runs-on: ubuntu-22.04
     steps:
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
       - name: Build and Push
-        uses: docker/build-push-action@v6
-        with:
-          tags: java:21.0.6
-          build-args: |
-            jdk_updates_release=https://github.com/openjdk/jdk21u.git
-            jdk_updates_tag=jdk-21.0.6+6
+        run: |
+          echo ${{ github.ref }}
+          echo ${{ github.event.number }}
+          echo ${{ github.ref == 'refs/heads/master' && 'java' || 'java-dev' }}:21.0.6${{ github.event.number && format('PR-{0}', github.event.number) }}
