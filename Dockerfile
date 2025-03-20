@@ -1,6 +1,4 @@
-FROM alpine:3.21.3
+FROM alpine:3.21.1
 
-ARG SOURCE_REPOSITORY=https://github.com/openjdk/jdk21u
-ARG SOURCE_TAG=jdk-21.0.7+4
-
-RUN echo "$SOURCE_REPOSITORY / $SOURCE_TAG" > version.txt
+# renovate: datasource=github-tags depName=openjdk/jdk17u versioning=regex:^jdk-(?<major>\d+)(?:\.(?<minor>\d+)\.(?<patch>\d+))?\+(?<build>\d+)$
+ARG JDK_UPDATES_TAG=jdk-17.0.14+5
