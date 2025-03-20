@@ -1,8 +1,6 @@
-FROM alpine:3.21.0
+FROM alpine:3.21.3
 
-RUN apk add git
+ARG source_repository=https://github.com/openjdk/jdk21u
+ARG source_tag=jdk-21.0.7+4
 
-ARG jdk_updates_release
-ARG jdk_updates_tag
-
-RUN git clone $jdk_updates_release -b $jdk_updates_tag --depth 1
+RUN echo "$source_repository / $source_tag" > version.txt
