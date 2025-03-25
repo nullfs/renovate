@@ -10,4 +10,4 @@ jobs:
     with:
       image_repository: docker.io/library/java
       # renovate: datasource=github-tags depName=openjdk/jdk17u versioning=semver extractVersion=^jdk-(?<version>[\d.]+)\+\d+$
-      image_tag: 17.0.14
+      image_tag: 17.0.13
