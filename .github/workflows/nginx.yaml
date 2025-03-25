@@ -8,5 +8,5 @@ jobs:
   main:
     uses: ./.github/workflows/docker.yaml
     with:
-      image_repository: docker.io/library/java
+      image_repository: docker.io/library/nginx
       image_tag: 17.0.14
