@@ -1,12 +1,15 @@
-name: CI/CD
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+  workflow_call:
+    inputs:
+      image_repository:
+        type: string
+        required: true
+      image_tag:
+        type: string
+        required: true
 jobs:
   main:
-    uses: ./.github/workflows/docker.yaml
-    with:
-      image_repository: docker.io/library/alpine
-      image_tag: 3.21.3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo ${{ inputs.image_repository }}:${{ inputs.image_tag }}
