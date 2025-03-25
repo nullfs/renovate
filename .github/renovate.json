@@ -1,6 +1,5 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["group:allNonMajor"],
     "enabledManagers": ["dockerfile", "github-actions", "regex"],
     "customManagers": [
         {
@@ -9,6 +8,13 @@
             "matchStrings": [
                 "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG.*?=(?<currentValue>\\S+)"
             ]
+        }
+    ],
+    "packageRules": [
+        {
+            "matchPackageNames": ["*"],
+            "groupName": "all dependencies",
+            "groupSlug": "dependencies"
         }
     ]
 }
