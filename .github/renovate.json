@@ -12,20 +12,9 @@
     ],
     "packageRules": [
         {
-            "matchFileNames": [
-                ".github/workflows/java.yaml",
-                "java/**"
-            ],
-            "groupName": "Java image dependencies",
-            "groupSlug": "java"
-        },
-        {
-            "matchFileNames": [
-                ".github/workflows/nginx.yaml",
-                "nginx/**"
-            ],
-            "groupName": "Nginx image dependencies",
-            "groupSlug": "nginx"
+            "matchPackageNames": ["*"],
+            "groupName": "all dependencies",
+            "groupSlug": "dependencies"
         }
     ]
 }
