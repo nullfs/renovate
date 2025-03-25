@@ -6,11 +6,10 @@
             "customType": "regex",
             "fileMatch": [
                 "(^|/)(Docker|Container)file$",
-                "^\\.github/workflows/.*\\.yaml$"
+                "\\.yaml$"
             ],
             "matchStrings": [
-                "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)( versioning=(?<versioning>.+?))?( extractVersion=(?<extractVersion>.+?))?\\sARG \\w+=(?<currentValue>\\S+)",
-                "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)( versioning=(?<versioning>.+?))?( extractVersion=(?<extractVersion>.+?))?\\s+\\w+: (?<currentValue>\\S+)"
+                "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s+.*?(?:: |=)(?<currentValue>\\S+)"
             ]
         }
     ],
