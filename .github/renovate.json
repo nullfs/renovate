@@ -4,9 +4,12 @@
     "customManagers": [
         {
             "customType": "regex",
-            "fileMatch": ["(^|/)(Docker|Container)file$"],
+            "fileMatch": [
+                "(^|/)(Docker|Container)file$",
+                "^.*\\.yaml$"
+            ],
             "matchStrings": [
-                "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\sARG.*?=(?<currentValue>\\S+)"
+                "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?(?:\r\n|\r|\n)\\s*(?:ARG )?\\w+(?:=|: )(?<currentValue>\\S+)"
             ]
         }
     ],
