@@ -21,8 +21,8 @@
         },
         {
             "matchFileNames": [
-                ".github/workflows/java.yaml",
-                "java/**"
+                ".github/workflows/nginx.yaml",
+                "nginx/**"
             ],
             "groupName": "Nginx image dependencies",
             "groupSlug": "nginx"
