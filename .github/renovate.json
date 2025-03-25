@@ -6,7 +6,7 @@
             "customType": "regex",
             "fileMatch": ["(^|/)(Docker|Container)file$"],
             "matchStrings": [
-                "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\sARG.*?=(?<currentValue>\\S+)"
+                "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\sARG.*?=(?<currentValue>\\S+)"
             ]
         }
     ],
