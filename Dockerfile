@@ -1,4 +1,4 @@
-FROM ubuntu:25.04
+FROM ubuntu:25.04@sha256:10bb10bb062de665d4dc3e0ea36715270ead632cfcb74d08ca2273712a0dfb42
 
 RUN apt update && apt install -y pkgconf curl rsync autoconf file make zip gcc g++ libasound2-dev libjpeg-dev \
                                  libgif-dev libpng-dev liblcms2-dev libcups2-dev libfontconfig-dev libx11-dev \
