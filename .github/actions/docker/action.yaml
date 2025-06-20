@@ -1,0 +1,22 @@
+name: Build and push
+inputs:
+    repository:
+      type: string
+      required: true
+    tag:
+      type: string
+      required: true
+    arguments:
+      type: string
+      default: ''
+    context:
+      type: string
+      default: '{{defaultContext}}'
+runs:
+  using: composite
+  steps:
+    - uses: docker/build-push-action@v6
+      with:
+        tags: ${{ inputs.repository }}:${{ inputs.tag }}
+        build-args: ${{ inputs.arguments }}
+        context: ${{ inputs.context }}

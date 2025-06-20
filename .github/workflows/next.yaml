@@ -1,4 +1,4 @@
-name: Java (Default)
+name: Java
 on:
   push:
     branches: [master]
@@ -12,14 +12,14 @@ jobs:
       - name: Set build arguments
         id: args
         run: |
-          # renovate: datasource=github-tags depName=openjdk/jdk17u versioning=semver extractVersion=^jdk-(?<version>[\d.]+)\+\d+$
-          image_tag=17.0.15
-          # renovate: datasource=github-tags depName=openjdk/jdk17u versioning=regex:^jdk-(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)\+(?<build>\d+)$
-          jdk_version=jdk-17.0.15+6
+          # renovate: datasource=github-tags depName=openjdk/jdk24u versioning=semver extractVersion=^jdk-(?<version>[\d.]+)\+\d+$
+          image_tag=24.0.1
+          # renovate: datasource=github-tags depName=openjdk/jdk24u versioning=regex:^jdk-(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)\+(?<build>\d+)$
+          jdk_version=jdk-24.0.1+0
 
           echo jdk_version=$jdk_version >> "$GITHUB_OUTPUT"
-          echo jdk_updates=https://github.com/openjdk/jdk17u/archive/refs/tags/$jdk_version.tar.gz >> "$GITHUB_OUTPUT"
-          echo jdk_release=https://cdn.azul.com/zulu/bin/zulu17.58.21-ca-jdk17.0.15-linux_x64.tar.gz >> "$GITHUB_OUTPUT"
+          echo jdk_updates=https://github.com/openjdk/jdk24u/archive/refs/tags/$jdk_version.tar.gz >> "$GITHUB_OUTPUT"
+          echo jdk_release=https://cdn.azul.com/zulu/bin/zulu24.30.11-ca-jdk24.0.1-linux_x64.tar.gz >> "$GITHUB_OUTPUT"
 
           if [ ${{ github.ref }} == refs/heads/master ]; then
               echo image_tag=$image_tag >> "$GITHUB_OUTPUT"
