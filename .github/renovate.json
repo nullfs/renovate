@@ -18,6 +18,11 @@
             "matchPackageNames": ["*"],
             "groupName": "all dependencies",
             "groupSlug": "dependencies"
+        },
+        {
+            "matchDatasources": ["docker"],
+            "versioning": "semver",
+            "pinDigests": true
         }
     ]
 }

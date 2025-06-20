@@ -1,10 +1,22 @@
+name: Docker Build
 on:
   workflow_call:
     inputs:
       image_repository:
         type: string
-        required: true
+        required: false
+        default: docker.io/library/java
       image_tag:
+        type: string
+        required: false
+        default: latest
+      jdk_version:
+        type: string
+        required: true
+      jdk_updates:
+        type: string
+        required: true
+      jdk_release:
         type: string
         required: true
 jobs:
@@ -12,4 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo ${{ inputs.image_repository }}:${{ inputs.image_tag }}
+      - run: |
+          echo ${{ inputs.image_repository }}:${{ inputs.image_tag }}
+          echo ${{ inputs.jdk_version }}
+          echo ${{ inputs.jdk_updates }}
+          echo ${{ inputs.jdk_release }}

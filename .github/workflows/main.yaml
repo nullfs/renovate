@@ -1,4 +1,4 @@
-name: CI/CD
+name: Java 17
 on:
   push:
     branches: [master]
@@ -9,5 +9,9 @@ jobs:
     uses: ./.github/workflows/docker.yaml
     with:
       image_repository: docker.io/library/java
-      # renovate: datasource=github-tags depName=openjdk/jdk17u versioning=semver extractVersion=^jdk-(?<version>[\d.]+)\+\d+$
-      image_tag: 17.0.13
+      # renovate: datasource=github-tags depName=openjdk/jdk24u versioning=semver extractVersion=^jdk-(?<version>[\d.]+)\+\d+$
+      image_tag: 17.0.15
+      # renovate: datasource=github-tags depName=openjdk/jdk24u versioning=regex:^jdk-(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)\+(?<build>\d+)$
+      jdk_version: jdk-17.0.15+5
+      jdk_updates: https://github.com/openjdk/jdk24u/archive/refs/tags/${{ inputs.jdk_version }}.tar.gz
+      jdk_release: https://download.java.net/java/GA/jdk24/1f9ff9062db4449d8ca828c504ffae90/36/GPL/openjdk-24_linux-x64_bin.tar.gz
